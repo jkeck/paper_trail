@@ -841,15 +841,16 @@ string, please try the [paper_trail-globalid][37] gem.
 
 ### 4.b. Associations
 
-Discussed as early as 2009, and first implemented in late 2014, association
-tracking was maintained until 2018 as an experimental feature, not recommended
-for production. During that time a steady stream of issues were reported, there
-were not enough volunteers fixing them, and the list of known issues grew. In
-2018, the feature was moved to a separate gem,
-[paper_trail-association_tracking][6].
+To track and reify associations, use [paper_trail-association_tracking][6] (PT-AT).
 
-To avoid breaking changes, `paper_trail` will have a runtime dependency on
-`paper_trail-association_tracking` and keep running the existing tests related
+From 2014 to 2018, association tracking was part of PT core as an experimental
+feature, but many issues were discovered. To attract new volunteers to address
+these issues, PT-AT was extracted (see
+https://github.com/paper-trail-gem/paper_trail/issues/1070).
+
+Even though this has always been an experimental feature, we don't want the
+extraction of PT-AT to be a breaking change. So, `paper_trail` will have a
+runtime dependency on this gem and will keep running the existing tests related
 to association tracking. This arrangement will be maintained for a few years, if
 practical.
 
@@ -1417,7 +1418,7 @@ require 'paper_trail/frameworks/rspec'
 ```
 
 ## 8. PaperTrail Plugins
-- [paper_trail-association_tracking][6] - track and reify associations 
+- [paper_trail-association_tracking][6] - track and reify associations
 - [paper_trail-globalid][49] - enhances whodunnit by adding an `actor`
 
 ## 9. Integration with Other Libraries
